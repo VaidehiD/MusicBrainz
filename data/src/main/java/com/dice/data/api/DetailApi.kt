@@ -9,8 +9,8 @@ import retrofit2.http.Query
 interface DetailApi {
 
     @GET("artist/{artist_id}?inc={inc}&fmt=json")
-    suspend fun searchArtists(
-        @Path("artist_id") keyword: String, @Query("inc") includeFields: String
+    suspend fun getArtistDetails(
+        @Path("artist_id") artistId: String, @Query("inc") includeFields: String
     ): Response<ArtistDetailsResponse>
 
 }
