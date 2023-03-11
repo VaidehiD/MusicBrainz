@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -45,6 +46,14 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    //Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "androidx.hilt:hilt-navigation:$hilt_lifecycle_version"
+    implementation "androidx.hilt:hilt-navigation-compose:$hilt_lifecycle_version"
+    kapt "androidx.hilt:hilt-compiler:$androidx_hilt_version"
+    implementation "androidx.hilt:hilt-navigation-compose:$androidx_hilt_version"
 
     // domain module
     implementation project(path: ':domain')

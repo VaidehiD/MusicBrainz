@@ -1,15 +1,15 @@
-package com.dice.data.entity
+package com.dice.domain.model.artistDetails
 
-import java.io.Serializable
+import com.dice.domain.model.searchArtists.Artist
 
 data class ArtistDetailsResponse(
     val artist: Artist,
     val recordings: List<Recording>
-) : Serializable
+)
 
 data class Recording(
     val id: String,
     val title: String,
     val length: Double,
     val isVideo: Boolean
-) : Serializable
+)
