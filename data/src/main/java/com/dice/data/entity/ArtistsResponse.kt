@@ -11,7 +11,6 @@ data class ArtistsResponse(
 data class Artist(
     val id: String,
     val name: String,
-    val gender: String,
     val score: Int,
     val area: Area?
 ) : Serializable

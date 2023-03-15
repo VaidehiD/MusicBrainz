@@ -1,5 +1,6 @@
 package com.dice.data.source.remote.artists
 
+import android.util.Log
 import com.dice.data.api.SearchApi
 import com.dice.data.entity.ArtistsResponse
 import com.dice.data.utils.parseResult
@@ -14,6 +15,7 @@ class SearchArtistsRemoteSourceImpl(private val searchApi: SearchApi):
         keyword: String,
         offset: Int
     ): Flow<Result<ArtistsResponse>> = flow {
+        Log.d("Api call", "Offset = $offset")
         emit(searchApi.searchArtists(keyword, offset).parseResult())
     }
 }

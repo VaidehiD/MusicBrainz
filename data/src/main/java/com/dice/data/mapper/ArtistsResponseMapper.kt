@@ -3,7 +3,6 @@ package com.dice.data.mapper
 import com.dice.domain.model.searchArtists.Area
 import com.dice.domain.model.searchArtists.Artist
 import com.dice.domain.model.searchArtists.ArtistsResponse
-import com.dice.domain.model.searchArtists.Gender
 import com.dice.data.entity.Area as AreaEntity
 import com.dice.data.entity.Artist as ArtistEntity
 import com.dice.data.entity.ArtistsResponse as ArtistsResponseEntity
@@ -22,7 +21,6 @@ class ArtistsResponseMapper {
             Artist(
                 id = it.id,
                 name = it.name,
-                gender = Gender.valueOf(it.gender),
                 score = it.score,
                 area = it.area?.let { area -> mapArea(area) })
         }

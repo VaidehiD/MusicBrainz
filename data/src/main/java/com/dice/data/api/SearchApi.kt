@@ -7,9 +7,9 @@ import retrofit2.http.Query
 
 interface SearchApi {
 
-    @GET("artist/query=artist:{keyword}&offset={offset}&fmt=json")
+    @GET("artist/")
     suspend fun searchArtists(
-        @Query("keyword") keyword: String, @Query("offset") offset: Int
+        @Query("query") keyword: String, @Query("offset") offset: Int
     ): Response<ArtistsResponse>
 
 }

@@ -13,7 +13,6 @@ val area2 = area1.copy(id = "489ce91b-6658-3307-9877-795b68554c98")
 val artist1 = Artist(
     id = "f2154126-dd68-4f02-8821-0d4508d87a57",
     name = "Fred Sanders",
-    gender = "male",
     score = 93,
     area = area1
 )
