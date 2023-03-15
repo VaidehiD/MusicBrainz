@@ -1,0 +1,7 @@
+<resources>
+    <string name="content_desc_search_icon">Search</string>
+    <string name="home_screen_title">Dice - Music Brainz</string>
+    <string name="empty_screen_message">No artists found with name %s</string>
+    <string name="error_screen_message">Something went wrong: Error - %s</string>
+    <string name="no_artists_error">No artists found</string>
+</resources>

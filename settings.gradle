@@ -16,3 +16,4 @@ rootProject.name = "MusicBrainz"
 include ':app'
 include ':data'
 include ':domain'
+include ':feature:artist'
