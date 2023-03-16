@@ -1,8 +1,11 @@
 package com.dice.feature.artist.search
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -51,9 +54,12 @@ fun SearchArtistsScreen(
                 }
 
                 if (state.artists.isNotEmpty()) {
-                    ArtistList(state = state) {
-                        viewModel.searchArtists()
-                    }
+                    ArtistList(
+                        state = state,
+                        searchArtist = { viewModel.searchArtists() },
+                        onClickArtist = {
+
+                        })
                 }
 
                 state.error?.let {
@@ -117,7 +123,11 @@ fun SearchBar(
 }
 
 @Composable
-fun ArtistList(state: SearchArtistsState, searchArtist: () -> Unit) {
+fun ArtistList(
+    state: SearchArtistsState,
+    searchArtist: () -> Unit,
+    onClickArtist: (Artist) -> Unit
+) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(state.artists.size) { index ->
             val artist = state.artists[index]
@@ -127,12 +137,17 @@ fun ArtistList(state: SearchArtistsState, searchArtist: () -> Unit) {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp)
+                    .padding(PaddingValues(16.dp))
+                    .border(width = 1.dp, color = Color.LightGray, shape = RoundedCornerShape(size = 5.dp))
+                    .clickable {
+                        onClickArtist(artist)
+                    }
             ) {
                 Column(
                     Modifier
                         .fillMaxWidth()
                         .wrapContentHeight()
+                        .padding(8.dp)
                 ) {
                     Text(
                         text = artist.name,
@@ -182,6 +197,6 @@ fun ArtistListPreview() {
                     )
                 )
             )
-        )
-    ) {}
+        ),
+        {}) {}
 }
