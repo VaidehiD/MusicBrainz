@@ -16,7 +16,7 @@ class DefaultPaginator<Int, Artist>(
     private var offset = initialOffset
     private var isMakingRequest = false
 
-    override suspend fun loadNextItems(keyword: String) {
+    override suspend fun loadNextItems(keyword: String, offset: Int) {
         if(isMakingRequest) {
             return
         }
@@ -34,7 +34,7 @@ class DefaultPaginator<Int, Artist>(
             is Result.Success -> {
                 onSuccess(result.data)
                 onLoadUpdated(false)
-                offset = getNextOffset()
+//                offset = getNextOffset()
             }
         }
     }

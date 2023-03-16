@@ -56,13 +56,13 @@ class SearchArtistsViewModel @Inject constructor(useCase: SearchArtistsUseCase) 
     )
 
     fun updateSearchKeyword(keyWord: String) {
-        state = state.copy(searchKeyword = keyWord)
+        state = state.copy(searchKeyword = keyWord, error = null)
     }
 
     fun searchArtists() {
         state = state.copy(isLoading = true)
         viewModelScope.launch {
-            paginator.loadNextItems(state.searchKeyword)
+            paginator.loadNextItems(state.searchKeyword, state.offset)
         }
     }
 
@@ -71,7 +71,8 @@ class SearchArtistsViewModel @Inject constructor(useCase: SearchArtistsUseCase) 
             artists = emptyList(),
             artistsCount = 0,
             isEndOfList = true,
-            offset = 1
+            offset = 1,
+            error = null
         )
     }
 }
