@@ -34,7 +34,6 @@ class DefaultPaginator<Int, Artist>(
             is Result.Success -> {
                 onSuccess(result.data)
                 onLoadUpdated(false)
-//                offset = getNextOffset()
             }
         }
     }

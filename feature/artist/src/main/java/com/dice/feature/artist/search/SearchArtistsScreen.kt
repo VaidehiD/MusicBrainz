@@ -58,7 +58,8 @@ fun SearchArtistsScreen(
                         state = state,
                         searchArtist = { viewModel.searchArtists() },
                         onClickArtist = {
-
+                            // Todo: fix the navigation by moving the nested graph in the feature module
+                            navController.navigate("artist_details_screen/${it.id}")
                         })
                 }
 
@@ -138,7 +139,11 @@ fun ArtistList(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(PaddingValues(16.dp))
-                    .border(width = 1.dp, color = Color.LightGray, shape = RoundedCornerShape(size = 5.dp))
+                    .border(
+                        width = 1.dp,
+                        color = Color.LightGray,
+                        shape = RoundedCornerShape(size = 5.dp)
+                    )
                     .clickable {
                         onClickArtist(artist)
                     }
